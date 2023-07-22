@@ -123,6 +123,14 @@ function generateRandomPhoneNumber() {
   return `7-9${num1}-${num2}-${num3}-${num4}`;
 }
 
+function generateRandomAddress() {
+  const streets = ["ул. Красная", "ул. Ленина", "ул. Мира", "ул. Пушкина"];
+  const street = streets[Math.floor(Math.random() * streets.length)];
+  const buildingNumber = Math.floor(Math.random() * 300 + 1);
+  const apartmentNumber = Math.floor(Math.random() * 15 + 1);
+  return `${street}, д.${buildingNumber}, кв.${apartmentNumber}`;
+}
+
 function generateDataAndSaveToFile(filename, count) {
   const data = [];
 
@@ -131,6 +139,7 @@ function generateDataAndSaveToFile(filename, count) {
       index: i,
       name: generateRandomName(),
       phone: generateRandomPhoneNumber(),
+      address: generateRandomAddress(),
     });
   }
 
